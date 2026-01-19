@@ -6,27 +6,31 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6974172E2F1E3294002439D7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6974172D2F1E3294002439D7 /* SnapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		697417142F1E3226002439D7 /* ClubHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClubHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		697417142F1E3226002439D7 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		697417262F1E3227002439D7 /* Exceptions for "ClubHouse" folder in "ClubHouse" target */ = {
+		697417262F1E3227002439D7 /* Exceptions for "Instagram" folder in "Instagram" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
-			target = 697417132F1E3226002439D7 /* ClubHouse */;
+			target = 697417132F1E3226002439D7 /* Instagram */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		697417162F1E3226002439D7 /* ClubHouse */ = {
+		697417162F1E3226002439D7 /* Instagram */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				697417262F1E3227002439D7 /* Exceptions for "ClubHouse" folder in "ClubHouse" target */,
+				697417262F1E3227002439D7 /* Exceptions for "Instagram" folder in "Instagram" target */,
 			);
-			path = ClubHouse;
+			path = Instagram;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6974172E2F1E3294002439D7 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +50,7 @@
 		6974170B2F1E3226002439D7 = {
 			isa = PBXGroup;
 			children = (
-				697417162F1E3226002439D7 /* ClubHouse */,
+				697417162F1E3226002439D7 /* Instagram */,
 				697417152F1E3226002439D7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,7 +58,7 @@
 		697417152F1E3226002439D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				697417142F1E3226002439D7 /* ClubHouse.app */,
+				697417142F1E3226002439D7 /* Instagram.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,9 +66,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		697417132F1E3226002439D7 /* ClubHouse */ = {
+		697417132F1E3226002439D7 /* Instagram */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 697417272F1E3227002439D7 /* Build configuration list for PBXNativeTarget "ClubHouse" */;
+			buildConfigurationList = 697417272F1E3227002439D7 /* Build configuration list for PBXNativeTarget "Instagram" */;
 			buildPhases = (
 				697417102F1E3226002439D7 /* Sources */,
 				697417112F1E3226002439D7 /* Frameworks */,
@@ -74,13 +79,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				697417162F1E3226002439D7 /* ClubHouse */,
+				697417162F1E3226002439D7 /* Instagram */,
 			);
-			name = ClubHouse;
+			name = Instagram;
 			packageProductDependencies = (
+				6974172D2F1E3294002439D7 /* SnapKit */,
 			);
 			productName = ClubHouse;
-			productReference = 697417142F1E3226002439D7 /* ClubHouse.app */;
+			productReference = 697417142F1E3226002439D7 /* Instagram.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6974170F2F1E3226002439D7 /* Build configuration list for PBXProject "ClubHouse" */;
+			buildConfigurationList = 6974170F2F1E3226002439D7 /* Build configuration list for PBXProject "Instagram" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -107,12 +113,15 @@
 			);
 			mainGroup = 6974170B2F1E3226002439D7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6974172C2F1E3294002439D7 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 697417152F1E3226002439D7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				697417132F1E3226002439D7 /* ClubHouse */,
+				697417132F1E3226002439D7 /* Instagram */,
 			);
 		};
 /* End PBXProject section */
@@ -147,10 +156,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7W6F238426;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ClubHouse/Info.plist;
+				INFOPLIST_FILE = Instagram/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Instragram;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -175,10 +186,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7W6F238426;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ClubHouse/Info.plist;
+				INFOPLIST_FILE = Instagram/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Instragram;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -318,7 +331,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6974170F2F1E3226002439D7 /* Build configuration list for PBXProject "ClubHouse" */ = {
+		6974170F2F1E3226002439D7 /* Build configuration list for PBXProject "Instagram" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6974172A2F1E3227002439D7 /* Debug */,
@@ -327,7 +340,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		697417272F1E3227002439D7 /* Build configuration list for PBXNativeTarget "ClubHouse" */ = {
+		697417272F1E3227002439D7 /* Build configuration list for PBXNativeTarget "Instagram" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				697417282F1E3227002439D7 /* Debug */,
@@ -337,6 +350,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6974172C2F1E3294002439D7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6974172D2F1E3294002439D7 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6974172C2F1E3294002439D7 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6974170C2F1E3226002439D7 /* Project object */;
 }
