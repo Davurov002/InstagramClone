@@ -7,5 +7,5 @@
 
 enum FeedItemType {
     case stories(FeedStoriesCellInfo)
-    case posts(FeedStoriesCellInfo)
+    case posts(FeedPostItemInfo)
 }

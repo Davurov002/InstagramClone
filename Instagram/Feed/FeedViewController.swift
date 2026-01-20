@@ -32,10 +32,13 @@ class FeedViewController: UIViewController {
                     isNewStory: true),
                 FeedStoriesItemCellInfo(
                     image: UIImage(named: "Dog")!,
-                    username: "Abduraxmon",
+                    username: "User123",
                     isAddButtonVisible: false,
                     isNewStory: true),
             ]
+        ),
+        .posts(
+            FeedPostItemInfo(userImage: UIImage(named: "Dog")!, username: "Ruffles", postSubtitle: "Sponsered", postImage: UIImage(named: "Main")!, numberOfLikes: 123, comment: CommentShortInfo(username: "another_dog", commentText: "Cool :)"))
         )
     ]
 }
@@ -50,6 +53,7 @@ private extension FeedViewController {
         tableView.dataSource = self
         tableView.register(FeedPostSetCell.self, forCellReuseIdentifier: String(describing: FeedPostSetCell.self))
         tableView.register(FeedStoriesSetCell.self, forCellReuseIdentifier: String(describing: FeedStoriesSetCell.self))
+        tableView.separatorColor = .clear
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
