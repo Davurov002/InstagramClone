@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 class FeedViewController: UIViewController {
     //MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -35,7 +36,23 @@ class FeedViewController: UIViewController {
                     username: "User123",
                     isAddButtonVisible: false,
                     isNewStory: true),
+                FeedStoriesItemCellInfo(
+                    image: UIImage(named: "Dog")!,
+                    username: "User123",
+                    isAddButtonVisible: false,
+                    isNewStory: true),
+                FeedStoriesItemCellInfo(
+                    image: UIImage(named: "Dog")!,
+                    username: "User123",
+                    isAddButtonVisible: false,
+                    isNewStory: false),
             ]
+        ),
+        .posts(
+            FeedPostItemInfo(userImage: UIImage(named: "Dog")!, username: "Ruffles", postSubtitle: "Sponsered", postImage: UIImage(named: "Main")!, numberOfLikes: 123, comment: CommentShortInfo(username: "another_dog", commentText: "Cool :)"))
+        ),
+        .posts(
+            FeedPostItemInfo(userImage: UIImage(named: "Dog")!, username: "Ruffles", postSubtitle: "Sponsered", postImage: UIImage(named: "Main")!, numberOfLikes: 123, comment: CommentShortInfo(username: "another_dog", commentText: "Cool :)"))
         ),
         .posts(
             FeedPostItemInfo(userImage: UIImage(named: "Dog")!, username: "Ruffles", postSubtitle: "Sponsered", postImage: UIImage(named: "Main")!, numberOfLikes: 123, comment: CommentShortInfo(username: "another_dog", commentText: "Cool :)"))
@@ -62,7 +79,7 @@ private extension FeedViewController {
     
     func makeLeftBarButtonItems() -> [UIBarButtonItem] {
         let logoBarButtonItem = UIBarButtonItem(customView: LogoView())
-        let dropDownButtonItem = UIBarButtonItem(title: nil, image: UIImage(systemName: "chevron.down"), target: self, action: nil, menu: makeDropDownMenu())
+        let dropDownButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "chevron"), target: self, action: nil, menu: makeDropDownMenu())
         dropDownButtonItem.tintColor = .black
         
         return [logoBarButtonItem, dropDownButtonItem]
@@ -79,7 +96,8 @@ private extension FeedViewController {
     }
     
     @objc func didTapDirectButton() {
-        print("Direct button tapped")
+        let vc = MessagesViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
