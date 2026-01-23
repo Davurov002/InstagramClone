@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 
+
 class FeedViewController: UIViewController {
     //MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -17,47 +18,8 @@ class FeedViewController: UIViewController {
     }
     
     //MARK: - Private Properties
+    private let viewModel = FeedViewModel()
     private let tableView = UITableView()
-    private let items: [FeedItemType] = [
-        .stories(
-            [
-                FeedStoriesItemCellInfo(
-                    image: UIImage(named: "Dog")!,
-                    username: "Abduraxmon",
-                    isAddButtonVisible: true,
-                    isNewStory: false),
-                FeedStoriesItemCellInfo(
-                    image: UIImage(named: "Dog")!,
-                    username: "Abduraxmon",
-                    isAddButtonVisible: false,
-                    isNewStory: true),
-                FeedStoriesItemCellInfo(
-                    image: UIImage(named: "Dog")!,
-                    username: "User123",
-                    isAddButtonVisible: false,
-                    isNewStory: true),
-                FeedStoriesItemCellInfo(
-                    image: UIImage(named: "Dog")!,
-                    username: "User123",
-                    isAddButtonVisible: false,
-                    isNewStory: true),
-                FeedStoriesItemCellInfo(
-                    image: UIImage(named: "Dog")!,
-                    username: "User123",
-                    isAddButtonVisible: false,
-                    isNewStory: false),
-            ]
-        ),
-        .posts(
-            FeedPostItemInfo(userImage: UIImage(named: "Dog")!, username: "Ruffles", postSubtitle: "Sponsered", postImage: UIImage(named: "Main")!, numberOfLikes: 123, comment: CommentShortInfo(username: "another_dog", commentText: "Cool :)"))
-        ),
-        .posts(
-            FeedPostItemInfo(userImage: UIImage(named: "Dog")!, username: "Ruffles", postSubtitle: "Sponsered", postImage: UIImage(named: "Main")!, numberOfLikes: 123, comment: CommentShortInfo(username: "another_dog", commentText: "Cool :)"))
-        ),
-        .posts(
-            FeedPostItemInfo(userImage: UIImage(named: "Dog")!, username: "Ruffles", postSubtitle: "Sponsered", postImage: UIImage(named: "Main")!, numberOfLikes: 123, comment: CommentShortInfo(username: "another_dog", commentText: "Cool :)"))
-        )
-    ]
 }
 
 private extension FeedViewController {
@@ -117,11 +79,11 @@ private extension FeedViewController {
 extension FeedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return viewModel.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = items[indexPath.row]
+        let item = viewModel.items[indexPath.row]
         
         switch item {
         case .posts(let post):
