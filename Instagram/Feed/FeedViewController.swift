@@ -93,12 +93,19 @@ extension FeedViewController: UITableViewDataSource {
         case .stories(let story):
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeedStoriesSetCell.self), for: indexPath) as! FeedStoriesSetCell
             cell.configure(with: story)
+            cell.delegate = self
             return cell
         }
-        
     }
-    
-    
+}
+//MARK: - CellTapDelegate
+extension FeedViewController: CellTapDelegate {
+    func storyTapped(story: FeedStoriesItemCellInfo) {
+        let vc = StoryViewController()
+        vc.configure(with: story)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
 }
 
 

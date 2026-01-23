@@ -8,8 +8,14 @@
 import SnapKit
 import UIKit
 
+protocol CellTapDelegate: AnyObject {
+    func storyTapped(story: FeedStoriesItemCellInfo)
+}
+
 class FeedStoriesSetCell: UITableViewCell {
     //MARK: - Public
+    weak var delegate: CellTapDelegate?
+    
     func configure(with info: FeedStoriesCellInfo) {
         self.items = info
         collectionView.reloadData()
@@ -65,7 +71,12 @@ extension FeedStoriesSetCell: UICollectionViewDataSource {
         cell.configure(with: items[indexPath.row])
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.storyTapped(story: items[indexPath.row])
+    }
 }
+
 //MARK: - UICollectionViewDelegate
 extension FeedStoriesSetCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
