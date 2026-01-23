@@ -38,6 +38,9 @@ class StoryViewController: UIViewController {
         static let fontSize: CGFloat = 12
         static let contentOffset: CGFloat = 13
         static let crossButtonInsetToProgress = 12
+        static let bottomStackHeight = 40
+        static let bottomStackSpacing: CGFloat = 16
+        static let bottomStackInsetToView = 12
     }
     
     //MARK: - Private properties
@@ -74,6 +77,42 @@ class StoryViewController: UIViewController {
         button.addTarget(nil, action: #selector(crossButtonTapped), for: .touchUpInside)
         return button
     }()
+    
+    private let textFiledView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 20
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    private let textField: UITextField = {
+       let textField = UITextField()
+        textField.placeholder = "Send message"
+        textField.borderStyle = .roundedRect
+        textField.layer.borderColor = UIColor.red.cgColor
+        textField.backgroundColor = .clear
+        return textField
+    }()
+    
+    private let likeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.tintColor = .white
+        button.titleLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
+        return button
+    }()
+    
+    private let sendButton: UIButton = {
+       let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "paperplane"), for: .normal)
+        button.tintColor = .white
+        button.titleLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
+        return button
+    }()
+
     //MARK: - Private methods
     @objc func crossButtonTapped() {
         dismiss(animated: true)
@@ -92,7 +131,7 @@ private extension StoryViewController {
             make.leading.trailing.equalToSuperview().inset(UIConstraint.progressViewHorizontalInsetToView)
         }
         let profileStackView = UIStackView()
-        profileStackView.spacing = 10
+        profileStackView.spacing = UIConstraint.profileStackSpacing
         profileStackView.axis = .horizontal
         profileStackView.addArrangedSubview(userlmage)
         profileStackView.addArrangedSubview(usernameLabel)
@@ -109,6 +148,24 @@ private extension StoryViewController {
         crossButton.snp.makeConstraints { make in
             make.top.equalTo(progressView.snp.bottom).offset(UIConstraint.crossButtonInsetToProgress)
             make.trailing.equalToSuperview().inset(UIConstraint.contentOffset)
+        }
+        textFiledView.addSubview(textField)
+        textField.snp.makeConstraints { make in
+            make.edges.equalTo(textFiledView).inset(1)
+        }
+        let buttonStack = UIStackView()
+        buttonStack.addArrangedSubview(likeButton)
+        buttonStack.addArrangedSubview(sendButton)
+        let bottomStackView = UIStackView()
+        bottomStackView.addArrangedSubview(textFiledView)
+        bottomStackView.addArrangedSubview(buttonStack)
+        bottomStackView.spacing = UIConstraint.bottomStackSpacing
+        buttonStack.spacing = UIConstraint.bottomStackSpacing
+        view.addSubview(bottomStackView)
+        bottomStackView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(UIConstraint.bottomStackInsetToView)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.size.height.equalTo(UIConstraint.bottomStackHeight)
         }
     }
 }
