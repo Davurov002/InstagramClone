@@ -27,6 +27,7 @@ private extension FeedViewController {
     func initialise() {
         view.backgroundColor = .white
         navigationController?.navigationBar.tintColor = .black
+        navigationItem.backButtonDisplayMode = .minimal
         navigationItem.leftBarButtonItems = makeLeftBarButtonItems()
         navigationItem.rightBarButtonItems = makeRightBarButtonItems()
         tableView.dataSource = self
@@ -104,7 +105,7 @@ extension FeedViewController: CellTapDelegate {
         let vc = StoryViewController()
         vc.configure(with: story)
         vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        present(vc, animated: false)
     }
 }
 

@@ -23,6 +23,24 @@ final class FeedViewModel {
                     username: "User123",
                     isAddButtonVisible: false,
                     isNewStory: true
+                ),
+                FeedStoriesItemCellInfo(
+                    image: UIImage(named: "Dog")!,
+                    username: "User123",
+                    isAddButtonVisible: false,
+                    isNewStory: true
+                ),
+                FeedStoriesItemCellInfo(
+                    image: UIImage(named: "Dog")!,
+                    username: "User123",
+                    isAddButtonVisible: false,
+                    isNewStory: true
+                ),
+                FeedStoriesItemCellInfo(
+                    image: UIImage(named: "Dog")!,
+                    username: "User123",
+                    isAddButtonVisible: false,
+                    isNewStory: false
                 )
             ]
         ),

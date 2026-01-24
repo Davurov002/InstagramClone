@@ -28,13 +28,22 @@ private extension MainTabBarController {
         tabBar.tintColor = .black
         
         let feedVC = FeedViewController()
-        feedVC.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        feedVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        let searchVC = UIViewController()
+        searchVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyingglass"))
+        let reelVC = UIViewController()
+        reelVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "video"), selectedImage: UIImage(systemName: "video.fill"))
+        let shopVC = UIViewController()
+        shopVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart.fill"))
         let profileVC = ProfileViewController()
         profileVC.tabBarItem = UITabBarItem(title: nil, image: profileImage.image, selectedImage: profileImage.image)
         
         viewControllers = [
             UINavigationController(rootViewController: feedVC),
-            UINavigationController(rootViewController: profileVC),
+            UINavigationController(rootViewController: searchVC),
+            UINavigationController(rootViewController: reelVC),
+            UINavigationController(rootViewController: shopVC),
+            UINavigationController(rootViewController: profileVC)
         ]
     }
 }
