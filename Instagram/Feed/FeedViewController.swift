@@ -11,6 +11,10 @@ import SnapKit
 
 
 class FeedViewController: UIViewController {
+    //MARK: - Public
+    weak var coordinator: HomeCoordinator?
+    var onFinish: (() -> Void)?
+    
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
