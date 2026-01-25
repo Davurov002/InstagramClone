@@ -6,51 +6,39 @@
 //
 import UIKit
 
-final class AppCoordinator: Coordinator {
-    //MARK: - Public
-    var childCoordinator: [Coordinator] = []
-    var navigationController: UINavigationController
-    let session: SessionService
+final class AppCoordinator {
+
     let window: UIWindow
-    
-    init(navigationController: UINavigationController, session: SessionService, window: UIWindow) {
-        self.navigationController = navigationController
-        self.session = session
+    let session: SessionService
+    var childCoordinator: [Coordinator] = []
+
+    init(window: UIWindow, session: SessionService) {
         self.window = window
+        self.session = session
     }
-    
+
     func start() {
         if session.isLogedIn {
-            startMainTabReplacingStack()
+            showMainTab()
         } else {
-            startAuth()
+            showAuth()
         }
     }
-    
-    func finish() {}
-    //MARK: - Private methods
-    private func startAuth() {
-        print("Starting auth")
-        let auth = AuthCoordinator(navigationController: navigationController, session: session)
-        // Parent listens to child's finish signal
-        auth.onFinish = { [weak self, weak auth] in
-            guard let self, let auth else { return }
-            self.remove(child: auth)
-            self.startMainTabReplacingStack()
+
+    private func showAuth() {
+        let nav = UINavigationController()
+        let auth = AuthCoordinator(navigationController: nav, session: session)
+        auth.onFinish = { [weak self] in
+            self?.showMainTab()
         }
         childCoordinator = [auth]
+        window.rootViewController = nav
         auth.start()
     }
-    
-    private func startMainTabReplacingStack() {
-        print("Replacing navigation stack with main tab")
-        let mainTab = MainTabCoordinator(navigationController: navigationController, session: session)
-        childCoordinator.append(mainTab)
-        mainTab.start()
-    }
-    
-    private func remove(child: Coordinator) {
-        print("Removing child coordinator")
-        childCoordinator.removeAll { $0 === child }
+
+    private func showMainTab() {
+        let mainTab = MainTabCoordinator(session: session)
+        
+        window.rootViewController = mainTab.start()
     }
 }

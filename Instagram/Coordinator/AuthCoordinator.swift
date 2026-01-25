@@ -8,36 +8,36 @@
 import UIKit
 
 final class AuthCoordinator: Coordinator {
-    //MARK: - Publik
+    // MARK: - Public
     var childCoordinator: [Coordinator] = []
     var navigationController: UINavigationController
     let session: SessionService
-    
+
     var onFinish: (() -> Void)?
-    
+
     init(navigationController: UINavigationController, session: SessionService) {
         self.navigationController = navigationController
         self.session = session
     }
-    
+
     func start() {
+        // ✅ Changed: use setViewControllers instead of push to reset stack
         let login = LoginViewController()
         login.coordinator = self
-        // Root of auth flow
         navigationController.setViewControllers([login], animated: false)
     }
-    
+
     func loginSucceeded(with email: String) {
         session.logIn()
-        finish() // signal parent
+        finish()
     }
-    
+
     func finish() {
         onFinish?()
     }
-    
-    //MARK: - Private Methods
+
     private func remove(child: Coordinator) {
         childCoordinator.removeAll { $0 === child }
     }
 }
+

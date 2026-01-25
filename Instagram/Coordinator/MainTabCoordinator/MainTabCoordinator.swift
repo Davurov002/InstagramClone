@@ -7,47 +7,42 @@
 
 import UIKit
 
-final class MainTabCoordinator: Coordinator {
-    var childCoordinator: [Coordinator] = []
-    let navigationController: UINavigationController
+final class MainTabCoordinator {
+
     let session: SessionService
-    
-    init(navigationController: UINavigationController, session: SessionService) {
-        self.navigationController = navigationController
+    var childCoordinator: [Coordinator] = []
+
+    init(session: SessionService) {
         self.session = session
     }
-    
-    func start() {
-        // Build each tab with its own nav + coordinator
+
+    func start() -> UITabBarController {
+
+        let tabBarController = MainTabBarController()
+
         let homeNav = UINavigationController()
         let home = HomeCoordinator(navigationController: homeNav)
-        childCoordinator.append(home)
         home.start()
-        
+        homeNav.tabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "house"),
+            selectedImage: UIImage(systemName: "house.fill")
+        )
+
         let searchNav = UINavigationController()
         let search = SearchCoordinator(navigationController: searchNav)
-        childCoordinator.append(search)
         search.start()
-        
-        let reelNav = UINavigationController()
-        let reel = ReelsCoordinator(navigationController: reelNav)
-        childCoordinator.append(reel)
-        reel.start()
-        
-        let cartNav = UINavigationController()
-        let cart = CartCoordinator(navigationController: cartNav)
-        childCoordinator.append(cart)
-        cart.start()
-        
-        let profileNav = UINavigationController()
-        let profile = ProfileCoordinator(navigationController: profileNav)
-        childCoordinator.append(profile)
-        profile.start()
-        
-        navigationController.setViewControllers( [MainTabBarController()], animated: false)
+        searchNav.tabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "magnifyingglass"),
+            selectedImage: UIImage(systemName: "magnifyingglass")
+        )
+
+        // add others...
+
+        childCoordinator = [home, search]
+
+        tabBarController.viewControllers = [homeNav, searchNav]
+        return tabBarController
     }
-    
-    func finish() {
-    }
-    
 }
