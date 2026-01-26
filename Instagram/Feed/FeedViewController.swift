@@ -13,7 +13,6 @@ import SnapKit
 class FeedViewController: UIViewController {
     //MARK: - Public
     weak var coordinator: HomeCoordinator?
-    var onFinish: (() -> Void)?
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -63,10 +62,8 @@ private extension FeedViewController {
     }
     
     @objc func didTapDirectButton() {
-        let vc = MessagesViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        coordinator!.openMessages()
     }
-    
     
     func makeDropDownMenu() -> UIMenu {
         let subsItem = UIAction(title: "Following", image: UIImage(systemName: "person.2")) { _ in
@@ -82,7 +79,6 @@ private extension FeedViewController {
 }
 
 extension FeedViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.items.count
     }

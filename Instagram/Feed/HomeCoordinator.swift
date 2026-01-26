@@ -22,6 +22,11 @@ final class HomeCoordinator: Coordinator {
         navigationController.setViewControllers([feed], animated: false)
     }
     
-    func finish() {
+    func finish() {}
+    
+    func openMessages() {
+        let messages = MessageCoordinator(navigationController: navigationController)
+        childCoordinator.append(messages)
+        messages.start()
     }
 }

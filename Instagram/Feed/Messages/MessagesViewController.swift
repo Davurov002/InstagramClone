@@ -11,6 +11,7 @@ import UIKit
 class MessagesViewController: UIViewController {
     
     var viewModel = MessageViewModel()
+    weak var coordinator: MessageCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,5 +1,5 @@
 //
-//  CartCoordinator.swift
+//  ShopCoordinator.swift
 //  Instagram
 //
 //  Created by Abduraxmon Davurov on 25/01/26.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CartCoordinator: Coordinator {
+final class ShopCoordinator: Coordinator {
     var childCoordinator: [Coordinator] = []
     var navigationController: UINavigationController
     

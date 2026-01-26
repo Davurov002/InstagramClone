@@ -21,7 +21,6 @@ final class AuthCoordinator: Coordinator {
     }
 
     func start() {
-        // ✅ Changed: use setViewControllers instead of push to reset stack
         let login = LoginViewController()
         login.coordinator = self
         navigationController.setViewControllers([login], animated: false)
