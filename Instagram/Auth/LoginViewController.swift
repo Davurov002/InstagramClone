@@ -17,9 +17,15 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         initialize()
     }
+    
     //MARK: - Private propeties
+    let instagramLogo: UIView = {
+        let view = LogoView(logoWidth: 194, logoHeight: 50)
+        return view
+    }()
+    
     let loginButton: UIButton = {
-       let button = UIButton(type: .system)
+        let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
         button.addTarget(nil, action: #selector(login), for: .touchUpInside)
         button.backgroundColor = .systemBlue
@@ -38,6 +44,10 @@ private extension LoginViewController {
     func initialize() {
         title = "Login"
         view.backgroundColor = .systemBackground
+        view.addSubview(instagramLogo)
+        instagramLogo.snp.makeConstraints { make in
+            
+        }
         view.addSubview(loginButton)
         loginButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(20)
@@ -45,4 +55,8 @@ private extension LoginViewController {
             make.size.height.equalTo(44)
         }
     }
+}
+
+#Preview {
+    return LoginViewController()
 }

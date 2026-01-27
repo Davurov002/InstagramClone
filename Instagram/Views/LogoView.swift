@@ -10,7 +10,14 @@ import UIKit
 
 class LogoView: UIView {
     //MARK: - Init
-    init() {
+    let logoWidth: CGFloat
+    let logoHeight: CGFloat
+    let logoName: String
+    
+    init(logoWidth: CGFloat = 104, logoHeight: CGFloat = 30, logoName: String = "instagramLogo") {
+        self.logoWidth = logoWidth
+        self.logoHeight = logoHeight
+        self.logoName = logoName
         super.init(frame: .zero)
         initilisze()
     }
@@ -19,16 +26,10 @@ class LogoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Private constrains
-    private enum UIConstraint {
-        static let logoWidth: CGFloat = 104
-        static let logoHeight: CGFloat = 30
-    }
-    
     //MARK: - Private properties
     private let imageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "InstragramLogo")
+        view.contentMode = .scaleAspectFit
         return view
     }()
 }
@@ -36,11 +37,12 @@ class LogoView: UIView {
 //MARK: - Private methods
 private extension LogoView {
     func initilisze() {
+        imageView.image = UIImage(named: logoName)
         addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.width.equalTo(UIConstraint.logoWidth)
-            make.height.equalTo(UIConstraint.logoHeight)
+            make.width.equalTo(logoWidth)
+            make.height.equalTo(logoHeight)
         }
     }
 }
