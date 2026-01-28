@@ -9,15 +9,15 @@ import SnapKit
 import UIKit
 
 class LogoView: UIView {
-    //MARK: - Init
+    //MARK: - Public property
     let logoWidth: CGFloat
     let logoHeight: CGFloat
-    let logoName: String
-    
-    init(logoWidth: CGFloat = 104, logoHeight: CGFloat = 30, logoName: String = "instagramLogo") {
+    let islargeIcon: Bool
+    //MARK: - Init
+    init(logoWidth: CGFloat = 104, logoHeight: CGFloat = 30, islargeIcon: Bool = false) {
         self.logoWidth = logoWidth
         self.logoHeight = logoHeight
-        self.logoName = logoName
+        self.islargeIcon = islargeIcon
         super.init(frame: .zero)
         initilisze()
     }
@@ -37,7 +37,7 @@ class LogoView: UIView {
 //MARK: - Private methods
 private extension LogoView {
     func initilisze() {
-        imageView.image = UIImage(named: logoName)
+        imageView.image = UIImage(named: islargeIcon ? "instagramLogoLarge" : "InstragramLogo")
         addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
