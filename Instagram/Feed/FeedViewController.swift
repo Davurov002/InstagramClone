@@ -17,6 +17,8 @@ class FeedViewController: UIViewController {
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("FeedVC instance:", self)
+        print("Coordinator:", coordinator as Any)
         initialise()
     }
     

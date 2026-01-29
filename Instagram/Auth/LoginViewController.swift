@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
         static let singUpLabelFontSize: CGFloat = 15
         static let signUpStackTopPadding: CGFloat = 30
         static let signUpStackSpacing: CGFloat = 8
+        static let lineStackSpacing: CGFloat = 8
     }
     //MARK: - Private propeties
     private let instagramLogo: UIView = {
@@ -157,16 +158,16 @@ private extension LoginViewController {
         loginButton.snp.makeConstraints { make in
             make.top.equalTo(instagramLogo.snp.bottom).offset(UIConstant.loginButtonToTopLogoInsert)
             make.trailing.leading.equalToSuperview().inset(UIConstant.horizontalInsert)
-            make.size.height.equalTo(UIConstant.loginButtonHeight)
+            make.height.equalTo(UIConstant.loginButtonHeight)
         }
         
         leftLineView.snp.makeConstraints { make in
             make.height.equalTo(UIConstant.lineViewHeight)
-            make.width.equalTo(UIConstant.lineViewWidth)
+            make.width.greaterThanOrEqualTo(UIConstant.lineViewWidth)
         }
         rightLineView.snp.makeConstraints { make in
             make.height.equalTo(UIConstant.lineViewHeight)
-            make.width.equalTo(UIConstant.lineViewWidth)
+            make.width.greaterThanOrEqualTo(UIConstant.lineViewWidth)
         }
         let lineStackView = UIStackView(arrangedSubviews: [
             leftLineView,
@@ -174,6 +175,8 @@ private extension LoginViewController {
             rightLineView
         ])
         lineStackView.axis = .horizontal
+        lineStackView.spacing = UIConstant.lineStackSpacing
+        lineStackView.distribution = .fillProportionally
         lineStackView.alignment = .center
         view.addSubview(lineStackView)
         lineStackView.snp.makeConstraints { make in

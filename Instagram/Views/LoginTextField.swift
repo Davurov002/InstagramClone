@@ -10,6 +10,10 @@ import UIKit
 class LoginTextField: UIView {
     //MARK: - Public
     let placeHolder: String
+    var onTextChanged: ((String?) -> Void)?
+    var text: String {
+        return textField.text ?? ""
+    }
     
     //MARK: - Init
     init(placeHolder: String) {
@@ -26,13 +30,19 @@ class LoginTextField: UIView {
         static let cornerRadius: CGFloat = 6
         static let verticalPadding: CGFloat = 13
         static let leadingPadding: CGFloat = 18
+        static let containerHeight: CGFloat = 42
     }
     
     //MARK: - Private
     private let textField: UITextField = {
         let textField = UITextField()
+        textField.addTarget(nil, action: #selector(textDidChange), for: .editingChanged)
         return textField
     }()
+    
+    @objc private func textDidChange() {
+        onTextChanged?(textField.text)
+    }
 }
 
 private extension LoginTextField {
@@ -40,7 +50,7 @@ private extension LoginTextField {
         textField.placeholder = placeHolder
         addSubview(textField)
         self.snp.makeConstraints { make in
-            make.height.equalTo(42)
+            make.height.equalTo(UIConstants.containerHeight)
         }
         textField.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(UIConstants.verticalPadding)

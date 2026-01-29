@@ -19,6 +19,7 @@ final class HomeCoordinator: Coordinator {
         let feed = FeedViewController()
         feed.coordinator = self
         // Root of auth flow
+        print(feed.coordinator)
         navigationController.setViewControllers([feed], animated: false)
     }
     
