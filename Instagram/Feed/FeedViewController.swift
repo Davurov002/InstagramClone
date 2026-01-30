@@ -12,13 +12,11 @@ import SnapKit
 
 class FeedViewController: UIViewController {
     //MARK: - Public
-    weak var coordinator: HomeCoordinator?
+    var coordinator: HomeCoordinator?
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("FeedVC instance:", self)
-        print("Coordinator:", coordinator as Any)
         initialise()
     }
     

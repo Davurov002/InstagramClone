@@ -30,4 +30,8 @@ final class HomeCoordinator: Coordinator {
         childCoordinator.append(messages)
         messages.start()
     }
+    
+    deinit {
+        print("HomeCoordinator: deinit")
+    }
 }
