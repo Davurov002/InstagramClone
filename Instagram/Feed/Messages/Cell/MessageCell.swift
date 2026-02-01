@@ -13,7 +13,7 @@ class MessageCell: UITableViewCell {
     func configure(with info: MessageSetInfo) {
         userImage.image = info.image
         nameLabel.text = info.name
-        lastMessageLabel.text = "\(info.messages.last?.message ?? "-:-") - \(info.messages.last?.date.timeAgoString() ?? "-:-")"
+        lastMessageLabel.text = "\(info.messages.last?.message ?? "") - \(info.messages.last?.date.timeAgoString() ?? "")"
     }
     //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
