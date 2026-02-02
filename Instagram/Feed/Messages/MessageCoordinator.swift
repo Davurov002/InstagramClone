@@ -23,4 +23,8 @@ class MessageCoordinator: Coordinator {
     func finish() {
         navigationController.popViewController(animated: true)
     }
+    
+    func showMessageDetail() {
+       
+    }
 }
