@@ -25,6 +25,7 @@ class MessageCoordinator: Coordinator {
     }
     
     func showMessageDetail() {
-       
+        let vc = MessageDetailViewController()
+        navigationController.pushViewController(vc, animated: true)
     }
 }
